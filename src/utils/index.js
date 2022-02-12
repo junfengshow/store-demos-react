@@ -1,6 +1,9 @@
 
-export const getUserList = () => {
+export const getUserList = (params) => {
+  
   return new Promise((resolve) => {
-    setTimeout(resolve, 2000)
+    setTimeout(() => {
+      resolve(['zhangsan', 'lisi'])
+    }, 200)
   })
 }

@@ -119,7 +119,8 @@ config.module.rules.push({
   test: /\.css/,
   use: [
     {
-      loader: __DEV__ ? 'style-loader' : MiniCssExtractPlugin.loader
+      loader: MiniCssExtractPlugin.loader,
+      // loader: __DEV__ ? 'style-loader' : MiniCssExtractPlugin.loader
     },
     {
       loader: 'css-loader'

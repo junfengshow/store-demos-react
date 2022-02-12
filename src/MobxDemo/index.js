@@ -2,31 +2,31 @@
  * mobx demo
  */
 import React from 'react';
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
+import { action, observable, computed, autorun } from 'mobx';
+import { observer, Provider, inject } from 'mobx-react';
+import { store } from './store';
 
-const appState = observable({
-  timer: 0
-});
-appState.setTimer = action(function reset () {
-  appState.timer += 1;
-});
-
-setTimeout(() => {
-  appState.timer += 1;
-}, 3000)
-
+@inject('store')
 @observer
 class MobxDemo extends React.Component {
+  componentDidMount () {
+    const { getUserList } = this.props.store;
+    getUserList && getUserList();
+  }
   resetTimer = () => {
-    const { setTimer } = this.props.appState;
-    setTimer();
+    const { store } = this.props;
+    store.setAge && store.setAge(store.age.get() + 1);
   }
   render () {
-    const { timer } = this.props.appState;
+    const { age, userList } = this.props.store;
     return (
       <div>
-        <a onClick={this.resetTimer}>timer: {timer}</a>
+        <a onClick={this.resetTimer}>click age: {age.get()}</a>
+        {
+          userList && userList.map((user) => (
+            <div key={user}>{user}</div>
+          ))
+        }
       </div>
     )
   }
@@ -34,7 +34,9 @@ class MobxDemo extends React.Component {
 
 const MobxDemoContainer = () => {
   return (
-    <MobxDemo appState={appState}/>
+    <Provider store={store}>
+      <MobxDemo />
+    </Provider>
   )
 }
 

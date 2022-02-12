@@ -1,0 +1,14 @@
+.context-demo-parent {
+  color: red;
+}
+.context-demo-parent-1 {
+  color: yellow;
+}
+
+.context-demo-input:read-write {
+  border-color: red;
+}
+
+div:target {
+  color: red;
+}

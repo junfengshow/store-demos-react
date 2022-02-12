@@ -66,7 +66,7 @@ class SyncReducers extends React.Component {
         value: syncReducer,
       })
       setAge(age + 1);
-    }, 3000);
+    }, 100);
   }
   render () {
     const { age } = this.props;
