@@ -39,5 +39,4 @@ const MobxDemoContainer = () => {
     </Provider>
   )
 }
-
 export default MobxDemoContainer;

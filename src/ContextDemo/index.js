@@ -22,9 +22,19 @@ const ContextDemoChild = () => {
 
 class ContextDemo extends React.Component {
   static contextType = MyContext;
+  constructor (props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
 
   componentDidMount () {
-    // console.log('props', this.context)
+    // setTimeout(() => {
+    //   this.setState({ count: this.state.count + 1 });
+    //   this.setState({ count: this.state.count + 1 });
+    //   this.setState({ count: this.state.count + 1 });
+    // })
   }
 
   render () {
@@ -32,10 +42,10 @@ class ContextDemo extends React.Component {
     return (
       <div>
         <div className='context-demo-parent context-demo-parent-1'>
-          parent age: {age}
+          parent age: {age}; count: {this.state.count}
         </div>
 
-        <a href="#aa">冒点</a>
+        <a href="#aa">锚点</a>
         <div>
           <input type="text" className='context-demo-input' />
         </div>
@@ -51,7 +61,7 @@ const ContextDemoContainer = () => {
     <MyContext.Provider value={{
       dispatch,
       ...state,
-    }} dispatch={dispatch}>
+    }}>
       <ContextDemo />   
     </MyContext.Provider>
   )

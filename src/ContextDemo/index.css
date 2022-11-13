@@ -2,7 +2,7 @@
   color: red;
 }
 .context-demo-parent-1 {
-  color: yellow;
+  color: darkred;
 }
 
 .context-demo-input:read-write {

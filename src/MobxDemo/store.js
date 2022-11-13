@@ -20,6 +20,7 @@ class Store {
   })
   showAge = autorun(() => {
     // console.log('autorun age: ', this.age)
+    this.age.set(2);
   })
   // 获取用户列表
   getUserList = flow(function* () {
@@ -28,5 +29,4 @@ class Store {
     this.userList.push(...['zhangsan', 'lisi']);
   })
 }
-
 export const store = new Store();

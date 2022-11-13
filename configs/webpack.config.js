@@ -101,20 +101,20 @@ config.plugins.push(
     chunkFilename: '[id].css'
   })
 )
-config.module.rules.push({
-  test: /\.scss/,
-  use: [
-    {
-      loader: __DEV__ ? 'style-loader' : MiniCssExtractPlugin.loader
-    },
-    {
-      loader: 'css-loader'
-    },
-    {
-      loader: 'sass-loader'
-    }
-  ]
-})
+// config.module.rules.push({
+//   test: /\.scss/,
+//   use: [
+//     {
+//       loader: __DEV__ ? 'style-loader' : MiniCssExtractPlugin.loader
+//     },
+//     {
+//       loader: 'css-loader'
+//     },
+//     {
+//       loader: 'sass-loader'
+//     }
+//   ]
+// })
 config.module.rules.push({
   test: /\.css/,
   use: [
@@ -124,9 +124,6 @@ config.module.rules.push({
     },
     {
       loader: 'css-loader'
-    },
-    {
-      loader: 'sass-loader'
     }
   ]
 })

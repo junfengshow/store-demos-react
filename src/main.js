@@ -8,7 +8,7 @@ import ContextDemo from './ContextDemo';
 
 import dva, { connect } from 'dva';
 import userModel from './DvaDemo/user.model';
-import { createHashHistory } from 'history'
+import { createHashHistory } from 'history';
 
 const render = (Component, id) => {
   const node = document.getElementById(id);
